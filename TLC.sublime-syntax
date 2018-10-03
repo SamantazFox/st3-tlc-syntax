@@ -7,6 +7,10 @@ file_extensions:
   - tlc
 scope: source.tlc
 
+variables:
+  # Valid variables (and function) names must start with a letter
+  validNames: '[A-Za-z]\w+'
+
 
 contexts:
   main:
@@ -29,6 +33,31 @@ contexts:
   # Keywords context. All keywords should start with '%'
 
   keywords:
+    # Function declaration
+    - match: '(%)(function\b)\s*({{validNames}})(?=\s*\()'
+      scope: meta.function.tlc
+      captures:
+        1: keyword.control.tlc punctuation.definition.keyword.tlc
+        2: keyword.control.tlc
+        3: entity.name.function.tlc
+      push:
+        - meta_scope: meta.function.tlc
+        - match: '\('
+          scope: punctuation.definition.parameters.begin.tlc
+          push:
+            - match: '({{validNames}})\s*(,)?'
+              captures:
+                1: variable.parameter.tlc
+                2: punctuation.separator.tlc
+            - match: '\)'
+              scope: punctuation.definition.parameters.end.tlc
+              pop: true
+        - match: '\b(void|Output)\b'
+          scope: storage.type.tlc
+        - match: '\n'
+          pop: true
+
+    # Any other keyword
     - match: '(%)(\w+)\b'
       scope: keyword.control.tlc
       captures:
