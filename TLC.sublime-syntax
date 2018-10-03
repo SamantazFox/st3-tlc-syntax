@@ -23,7 +23,6 @@ contexts:
       scope: comment.line.tlc
       captures:
         1: punctuation.definition.comment.tlc
-      pop: true
 
 
   # ------------------------------------------------------------
@@ -34,7 +33,6 @@ contexts:
       scope: keyword.control.tlc
       captures:
         1: punctuation.definition.keyword.tlc
-      pop: true
 
 
   # ------------------------------------------------------------
@@ -58,7 +56,6 @@ contexts:
   language:
     - match: 'TLC_(TRUE|FALSE)'
       scope: constant.language.boolean.tlc
-      pop: true
 
 
   # ------------------------------------------------------------
@@ -67,14 +64,10 @@ contexts:
   operators:
     - match: '(!|&&|\|\|)'
       scope: keyword.operator.logical.tlc
-      pop: true
     - match: '((<|>)=?|==|!=)'
       scope: keyword.operator.comparison.tlc
-      pop: true
     - match: '='
       scope: keyword.operator.assignment.tlc
-      pop: true
     - match: '(\+|\*|-|\\)'
       scope: keyword.operator.arithmetic.tlc
-      pop: true
 
