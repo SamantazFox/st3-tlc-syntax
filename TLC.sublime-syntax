@@ -10,3 +10,13 @@ scope: source.tlc
 
 contexts:
   main:
+    - include: comments
+
+
+  # In TLC, comments are always single line, and start with %%
+  comments:
+    - match: '^\s*(%%).*$'
+      scope: comment.line.tlc
+      captures:
+        1: punctuation.definition.comment.tlc
+      pop: true
