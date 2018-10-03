@@ -14,6 +14,7 @@ contexts:
     - include: strings
     - include: keywords
     - include: language
+    - include: operators
 
 
   # In TLC, comments are always single line, and start with %%
@@ -58,3 +59,22 @@ contexts:
     - match: 'TLC_(TRUE|FALSE)'
       scope: constant.language.boolean.tlc
       pop: true
+
+
+  # ------------------------------------------------------------
+  # Miscellanous contexts
+
+  operators:
+    - match: '(!|&&|\|\|)'
+      scope: keyword.operator.logical.tlc
+      pop: true
+    - match: '((<|>)=?|==|!=)'
+      scope: keyword.operator.comparison.tlc
+      pop: true
+    - match: '='
+      scope: keyword.operator.assignment.tlc
+      pop: true
+    - match: '(\+|\*|-|\\)'
+      scope: keyword.operator.arithmetic.tlc
+      pop: true
+
