@@ -11,6 +11,7 @@ scope: source.tlc
 contexts:
   main:
     - include: comments
+    - include: strings
 
 
   # In TLC, comments are always single line, and start with %%
@@ -20,3 +21,18 @@ contexts:
       captures:
         1: punctuation.definition.comment.tlc
       pop: true
+
+
+  # ------------------------------------------------------------
+  # "Section" contexts, for strings "" and alike
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.tlc
+      push:
+        - meta_scope: string.quoted.double.tlc
+        - match: '\\.'
+          scope: constant.character.escape.tlc
+        - match: '"'
+          scope: punctuation.definition.string.end.tlc
+          pop: true
