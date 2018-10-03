@@ -16,7 +16,7 @@ contexts:
 
   # In TLC, comments are always single line, and start with %%
   comments:
-    - match: '^\s*(%%).*$'
+    - match: '^\s*(%%).*$\n?'
       scope: comment.line.tlc
       captures:
         1: punctuation.definition.comment.tlc
