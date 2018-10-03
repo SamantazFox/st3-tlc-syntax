@@ -12,6 +12,7 @@ contexts:
   main:
     - include: comments
     - include: strings
+    - include: keywords
 
 
   # In TLC, comments are always single line, and start with %%
@@ -20,6 +21,17 @@ contexts:
       scope: comment.line.tlc
       captures:
         1: punctuation.definition.comment.tlc
+      pop: true
+
+
+  # ------------------------------------------------------------
+  # Keywords context. All keywords should start with '%'
+
+  keywords:
+    - match: '(%)(\w+)\b'
+      scope: keyword.control.tlc
+      captures:
+        1: punctuation.definition.keyword.tlc
       pop: true
 
 
