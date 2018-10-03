@@ -15,7 +15,7 @@ contexts:
     - include: keywords
     - include: language
     - include: operators
-
+    - include: numbers
 
   # In TLC, comments are always single line, and start with %%
   comments:
@@ -71,3 +71,12 @@ contexts:
     - match: '(\+|\*|-|\\)'
       scope: keyword.operator.arithmetic.tlc
 
+  numbers:
+    - match: '(-?)\d*\.\d+'
+      scope: constant.numeric.float.tlc
+      captures:
+        1: keyword.operator.assignment.tlc
+    - match: '(-?)\d+'
+      scope: constant.numeric.integer.tlc
+      captures:
+        1: keyword.operator.assignment.tlc
