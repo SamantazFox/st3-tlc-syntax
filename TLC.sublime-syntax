@@ -13,6 +13,7 @@ contexts:
     - include: comments
     - include: strings
     - include: keywords
+    - include: language
 
 
   # In TLC, comments are always single line, and start with %%
@@ -48,3 +49,12 @@ contexts:
         - match: '"'
           scope: punctuation.definition.string.end.tlc
           pop: true
+
+
+  # ------------------------------------------------------------
+  # Language built-ins, such as functions and constants
+
+  language:
+    - match: 'TLC_(TRUE|FALSE)'
+      scope: constant.language.boolean.tlc
+      pop: true
