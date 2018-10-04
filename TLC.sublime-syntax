@@ -60,10 +60,10 @@ contexts:
           pop: true
 
     # Any other keyword
-    - match: '(%)(\w+)\b'
-      scope: keyword.control.tlc
+    - match: '(?:^\s*)(%)(\w+)\b'
       captures:
-        1: punctuation.definition.keyword.tlc
+        1: keyword.control.tlc punctuation.definition.keyword.tlc
+        2: keyword.control.tlc
 
 
   # ------------------------------------------------------------
