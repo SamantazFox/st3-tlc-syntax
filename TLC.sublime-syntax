@@ -87,8 +87,45 @@ contexts:
   # Language built-ins, such as functions and constants
 
   language:
-    - match: 'TLC_(TRUE|FALSE)'
+    # Boolean constants
+    - match: '\b(TLC_(TRUE|FALSE))\b'
       scope: constant.language.boolean.tlc
+
+    # Integer constants and numeric functions
+    - match: '\b(INT(8|16|32)?(MIN|MAX))\b'
+      scope: constant.language.integer.signed.tlc
+    - match: '\b(UINT(8|16|32)?MAX)\b'
+      scope: constant.language.integer.unsigned.tlc
+    - match: '\b(FORMAT|IMAG|REAL)\b'
+      scope: support.function.numeric.tlc
+
+    # File operation functions and constants
+    - match: '\b(NULL_FILE|STDOUT)\b'
+      scope: constant.language.files.tlc
+    - match: '\b(FILE_EXISTS)\b'
+      scope: support.function.files.tlc
+
+    # Record fields operation built-in functions
+    - match: '\b(FIELDNAMES|(GET|SET|REMOVE)FIELD)\b'
+      scope: support.function.fields.tlc
+
+    # Generate* built-in functions
+    - match: '\b(GENERATE(_(FILENAME|FORMATTED_VALUE|FUNCTION_EXISTS|TYPE(_FUNCTION_EXISTS)?))?)\b'
+      scope: support.function.generate.tlc
+
+    # Is* comparison built-in functions
+    - match: '\b(IS(ALIAS|EQUAL|EMPTY|FIELD|INF|NAN|FINITE|SLPRMREF|))\b'
+      scope: support.function.is-comparison.tlc
+
+    # String operation built-in functions
+    - match: '\b(SPRINTF|STRING(OF)?|SYSNAME|WHITE_SPACE)\b'
+      scope: support.function.strings.tlc
+
+    # Miscellanous TLC constants and functions
+    - match: '\b(NUMTLCFILES|OUTPUT_LINES|TLC(FILES|_TIME|_VERSION))\b'
+      scope: constant.language.other.tlc
+    - match: '\b(CAST|EXISTS|FEVAL|GET_COMMAND_SWITCH|IDNUM|ROLL_ITERATIONS|SIZE|TYPE|WILL_ROLL)\b'
+      scope: support.function.other.tlc
 
 
   # ------------------------------------------------------------
