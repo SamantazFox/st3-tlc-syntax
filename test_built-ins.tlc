@@ -1,0 +1,90 @@
+%%
+%% TLC Built-ins syntax test file
+%%
+
+%% Boolean constants
+TLC_FALSE
+TLC_TRUE
+
+
+%% Signed integer constants
+INT8MAX    %% 127
+INT8MIN    %% -128
+INT16MAX   %% 32767
+INT16MIN   %% -32768
+INT32MAX   %% 2147483647
+INT32MIN   %% -2147483648
+INTMIN     %% Minimum integer value on host machine.
+INTMAX     %% Maximum integer value on host machine.
+
+%% Unsigned integer constants
+UINT8MAX   %% 255U
+UINT16MAX  %% 65535U
+UINT32MAX  %% 4294967295U
+UINTMAX    %% Maximum unsigned integer value on host machine.
+
+%% Numeric functions
+FORMAT(realvalue, format)
+IMAG(expr)
+REAL(expr)
+
+
+%% File operation
+FILE_EXISTS(expr)
+NULL_FILE
+STDOUT
+
+
+%% Record fields operation
+FIELDNAMES(record)
+GETFIELD(record, "fieldname")
+REMOVEFIELD(record, "fieldname")
+SETFIELD(record, "fieldname", value)
+
+
+%% Generate* built-in functions
+GENERATE(record, funcName, ...)
+GENERATE_FILENAME(type)
+GENERATE_FORMATTED_VALUE(expr, string, expand)
+GENERATE_FUNCTION_EXISTS(record, funcName)
+GENERATE_TYPE(record, funcName, type, ...)
+GENERATE_TYPE_FUNCTION_EXISTS(record, funcName, type)
+
+
+%% Is* comparison built-in functions
+ISALIAS(record)
+ISEQUAL(expr1, expr2)
+ISEMPTY(expr)
+ISFIELD(record, "fieldname")
+ISINF(expr)
+ISNAN(expr)
+ISFINITE(expr)
+ISSLPRMREF(param.value)
+
+
+%% String operation built-in functions
+SPRINTF(format,var,...)
+STRING(expr)
+STRINGOF(expr)
+SYSNAME(expr)
+WHITE_SPACE(expr)
+
+
+%% Miscellanous TLC constants
+NUMTLCFILES
+OUTPUT_LINES
+TLCFILES
+TLC_TIME
+TLC_VERSION
+
+
+%% Miscellanous TLC functions
+CAST(expr, expr)
+EXISTS(var)
+FEVAL(command, expressions)
+GET_COMMAND_SWITCH
+IDNUM(expr)
+ROLL_ITERATIONS()
+SIZE(expr [,expr])
+TYPE(expr)
+WILL_ROLL(exprA, exprB)
