@@ -62,6 +62,21 @@ contexts:
         - match: '\n'
           pop: true
 
+    # if/elseif/else/endif
+    - match: '((else|end)?if|else)\b'
+      scope: keyword.control.conditional.tlc
+      pop: true
+
+    # switch/case
+    - match: '((end)?switch|case|break|default)\b'
+      scope: keyword.control.conditionnal.tlc
+      pop: true
+
+    # error/warning/trace/exit (meant for debugging)
+    - match: '(?<=%)(error|warning|trace|exit)\b'
+      scope: support.function.debug.tlc
+      pop: true
+
     # Any other keyword
     - match: '(\w+)\b'
       scope: keyword.control.tlc
