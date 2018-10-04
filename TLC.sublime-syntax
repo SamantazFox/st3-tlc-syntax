@@ -20,6 +20,8 @@ contexts:
     - include: language
     - include: operators
     - include: numbers
+    - include: line-continuation
+
 
   # In TLC, comments are always single line, and start with %%
   comments:
@@ -109,3 +111,8 @@ contexts:
       scope: constant.numeric.integer.tlc
       captures:
         1: keyword.operator.assignment.tlc
+
+  line-continuation:
+    # Match '...' or '\' at end of line
+    - match: '(\.\.\.|\\)\s*$\n?'
+      scope: punctuation.separator.continuation.tlc
