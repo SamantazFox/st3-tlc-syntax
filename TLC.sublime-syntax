@@ -99,7 +99,7 @@ contexts:
       scope: keyword.operator.comparison.tlc
     - match: '='
       scope: keyword.operator.assignment.tlc
-    - match: '(\+|\*|-|\\)'
+    - match: '(\+|\*|-|\\(?!\s*\n))'
       scope: keyword.operator.arithmetic.tlc
 
   numbers:
