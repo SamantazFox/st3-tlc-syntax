@@ -157,11 +157,12 @@ contexts:
       scope: keyword.operator.arithmetic.tlc
 
   numbers:
-    - match: '(-?)\d*\.\d+'
+    # NB: Don't match digits if an alpha charater preceeds it
+    - match: '(?<=\W)(-?)\d*\.\d+'
       scope: constant.numeric.float.tlc
       captures:
         1: keyword.operator.assignment.tlc
-    - match: '(-?)\d+'
+    - match: '(?<=\W)(-?)\d+'
       scope: constant.numeric.integer.tlc
       captures:
         1: keyword.operator.assignment.tlc
