@@ -35,6 +35,16 @@ contexts:
       scope: comment.line.tlc
       captures:
         1: punctuation.definition.comment.tlc
+    - match: '(/%)[\w\W]*'
+      scope: comment.block.tlc
+      captures:
+        1: punctuation.definition.comment.tlc
+      push:
+        - meta_scope: comment.block.tlc
+        - match: '(%/)'
+          captures:
+            1: punctuation.definition.comment.tlc
+          pop: true
 
 
   # ------------------------------------------------------------
