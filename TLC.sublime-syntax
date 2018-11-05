@@ -26,6 +26,7 @@ contexts:
     - include: operators
     - include: numbers
     - include: line-continuation
+    - include: function-call
 
 
   # In TLC, comments are always single line, and start with %%
@@ -171,3 +172,15 @@ contexts:
     # Match '...' or '\' at end of line
     - match: '(\.\.\.|\\)\s*$\n?'
       scope: punctuation.separator.continuation.tlc
+
+  function-call:
+    - match: '({{validNames}})\('
+      captures:
+        1: variable.function.tlc
+      push:
+        - meta_scope: meta.function-call.tlc
+        - include: strings
+        - include: function-call
+        - include: line-continuation
+        - match: '\)'
+          pop: true
