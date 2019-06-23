@@ -29,21 +29,20 @@ contexts:
     - include: function-call
 
 
-  # In TLC, comments are always single line, and start with %%
-  comments:
-    - match: '(%%).*$\n?'
-      scope: comment.line.tlc
-      captures:
-        1: punctuation.definition.comment.tlc
-    - match: '(/%)[\w\W]*'
-      scope: comment.block.tlc
-      captures:
-        1: punctuation.definition.comment.tlc
+  # Single line comments start with %% and go to end of line
+  # Multi-line comments are delimited with /% (start) and %/ (end)
+    - match: '%%'
+      scope: punctuation.definition.comment.tlc
+      push:
+        - meta_scope: comment.line.tlc
+        - match: $\n?
+          pop: true
+    - match: '/%'
+      scope: punctuation.definition.comment.begin.tlc
       push:
         - meta_scope: comment.block.tlc
-        - match: '(%/)'
-          captures:
-            1: punctuation.definition.comment.tlc
+        - match: '%/'
+          scope: punctuation.definition.comment.end.tlc
           pop: true
 
 
