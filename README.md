@@ -1,11 +1,47 @@
-Target Language Compiler Syntaxe
-================================
+TLC syntax for Sublime Text 3
+=============================
 
-A Subline Text 3 syntax package for MatLab's Target Language Compiler (TLC).
+This project aims to provide syntax highlighting for the TLC language.
+
+This syntax file is only compatible with the SublimeText 3 text editor.
+Check the correspondig [documentation](https://www.sublimetext.com/docs/3) for
+more details about the syntax.
 
 
-If you wan to know more about the TLC language, you can either go to [this link](http://www.mathworks.com/help/rtw/tlc/target-language-compiler-directives.html) (MatLab account required) or type the following command in MatLab's prompt:
+About the language
+------------------
+
+The Target Language Compiler (or TLC, for short) is the language used by MATLAB
+to convert Simulink models to source code (usually C, but also C++).
+
+
+The TLC language is not very well documented, but a brief description of the
+syntax is available at the following link (a MatLab account is required):
+
+http://www.mathworks.com/help/rtw/tlc/target-language-compiler-directives.html
+
+Alternatively, you can type the following in MatLab's command prompt:
 
 ```matlab
 web(fullfile(docroot, 'rtw', 'tlc', 'target-language-compiler-directives.html'))
 ```
+
+If you don't have a Matlab account or a Matlab install, here is a (free) syntax
+quick reference from
+[mit.edu](https://lost-contact.mit.edu/afs/it.kth.se/misc/packages/matlab/help/toolbox/rtw/tlcquick.html).
+
+
+How to install
+--------------
+
+Drop the `.sublime-syntax` file in SublimeText's `Packages` directory.
+
+This directory can be accessed via the `Preferences > Browse Packages` menu.
+
+
+License
+-------
+
+This project is provided under the [Unlicense](https://unlicense.org/).
+
+Feel free to copy, modify and redistribute it!
